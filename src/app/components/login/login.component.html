@@ -1,0 +1,15 @@
+<div class="alert alert-danger" *ngIf="alertMsg">
+    {{alertMsg}}
+</div>
+<form #loginForm="ngForm" (ngSubmit)="login()">
+    <div class="mb-3">
+        <label for="login_user" class="form-label">Username : </label>
+        <input type="text" class="form-control" name="username" required [(ngModel)]="user.username" id="login_user"
+            aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="login-password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="psd" required [(ngModel)]="user.password" id="login-password">
+    </div>
+    <button type="submit" class="btn btn--style">Connexion</button> 
+</form>

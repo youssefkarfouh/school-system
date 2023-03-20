@@ -1,0 +1,18 @@
+<div class="alert alert-danger" *ngIf="alertMsg">
+    {{alertMsg}}
+</div>
+<form #signUpForm="ngForm" (ngSubmit)="createUser()" >
+    <div class="mb-3">
+        <label for="login_email" class="form-label">Username : </label>
+        <input required type="text" class="form-control" name="username" [(ngModel)]="user.username" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="login-psd" class="form-label">Password : </label>
+        <input required type="password" class="form-control" name="psd" id="login_psd" [(ngModel)]="user.password">
+    </div>
+    <div class="mb-3">
+        <label for="conf-psd" class="form-label">Confirm password :</label>
+        <input required type="password" class="form-control" name="conf_psd" id="conf_psd" [(ngModel)]="user.confirmPsd">
+    </div>
+    <button type="submit" class="btn btn_create">Create User</button>
+</form>

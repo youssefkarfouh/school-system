@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+$main-color: #8a70d6;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+}
+
+.btn:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+.bg-color{
+  background-color: $main-color;
+}
+.btn--style {
+  color: white;
+  &:hover {
+    color: white;
+  }
+}
