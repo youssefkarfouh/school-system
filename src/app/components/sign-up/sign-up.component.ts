@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IUser } from '../../interfaces/user';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { ISignUp } from '../../shared/interfaces/auth';
+import { AuthenticationService } from '../../shared/services/authentication.service';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css'],
+  styleUrls: ['./sign-up.component.scss'],
 })
 export class SignupComponent {
-  alertMsg!: string; 
+  alertMsg!: string;
 
-  user: IUser = {
+  user: ISignUp = {
     username: '',
     password: '',
     confirmPsd: '',
@@ -29,8 +29,8 @@ export class SignupComponent {
         password: this.user.password,
       };
 
-      this.authService.addUser(user).subscribe((data) => {
-        console.log(data); 
+      this.authService.signUp(user).subscribe((data) => {
+        console.log(data);
       });
 
       this.router.navigateByUrl('/home/login');

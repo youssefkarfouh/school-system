@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
-$main-color: #8a70d6;
+:root {
+  --main-color: #8a70d6;
+}
 
 * {
   box-sizing: border-box;
@@ -11,16 +13,13 @@ body {
   min-height: 100vh;
 }
 
+// **************** BUTTON **************** 
 .btn:focus {
   box-shadow: none !important;
   outline: none !important;
 }
-.bg-color{
-  background-color: $main-color;
-}
-.btn--style {
-  color: white;
-  &:hover {
-    color: white;
-  }
+
+.btn--style {  
+  background-color: var(--main-color);
+  color: white;  
 }
