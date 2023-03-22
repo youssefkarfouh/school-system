@@ -21,7 +21,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     HomeComponent,
     DashboardComponent,
     AdminBoardComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
