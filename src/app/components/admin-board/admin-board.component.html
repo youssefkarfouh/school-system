@@ -1,1 +1,37 @@
-<router-outlet></router-outlet>
+<div class="app_layout">
+    <aside class="app_aside">
+        <div class="aside_logo">
+            <img src="assets/images/logo.svg" alt="">
+        </div>
+        <ul class="aside_nav nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link fs-normal" aria-current="page" routerLink="/admin/dashboard" routerLinkActive="active" >
+                    <fa-icon [icon]="faSchoolFlag"></fa-icon>
+                    Tableau de bord
+                </a>
+            </li>
+            <li class="nav-item dropdown_toggle">
+                <a class="nav-link" routerLink="/admin/" routerLinkActive="active" >
+                    <fa-icon [icon]="faSchoolFlag"></fa-icon>
+                    Etudiant
+                    <fa-icon class="ico_chevron" [icon]="faChevronDown"></fa-icon>
+                </a>
+
+                <div class="dropdown_menu">
+                    <a href="" class="nav-link">Ajouter Etudiant</a>
+                    <a href="" class="nav-link">List Etudiant</a>
+                </div>
+            </li>
+        </ul>
+    </aside>
+
+    <div class="app_content_wrapper">
+        <div class="app_topBar">
+        </div>
+
+        <div class="app_content">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+</div>

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdminBoardComponent } from './components/admin-board/admin-board.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
