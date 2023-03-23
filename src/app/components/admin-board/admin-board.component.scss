@@ -14,25 +14,46 @@
         display: block;
       }
     }
-    .aside_nav {
+    .app_aside_nav {
       .nav-item {
         .nav-link {
           display: flex;
           align-items: center;
           gap: 1.3rem;
           color: var(--text-color);
+          &.active {
+            background-color: var(--main-color);
+            color: white;
 
-          .ico_chevron{
-            margin-left: auto;
+            & + .dropdown_menu {
+              display: flex;
+            }
+
+            .ico_chevron{
+              transform: rotate(180deg);
+              -webkit-transform: rotate(180deg);
+              -moz-transform: rotate(180deg);
+              -ms-transform: rotate(180deg);
+              -o-transform: rotate(180deg);
+}
           }
+
+          .ico_chevron {
+            margin-left: auto;
+            transition: .3s all;
+            -webkit-transition: .3s all;
+            -moz-transition: .3s all;
+            -ms-transition: .3s all;
+            -o-transition: .3s all;
+}
         }
 
-        &.dropdown_toggle {
-          .dropdown_menu {
-
-            display: flex;
-            flex-direction: column;
-            padding-left: 2rem;
+        .dropdown_menu {
+          display: none;
+          flex-direction: column;
+          padding-left: 2rem;
+          .nav-link{
+            
           }
         }
       }

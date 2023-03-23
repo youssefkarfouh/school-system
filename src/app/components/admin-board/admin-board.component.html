@@ -3,15 +3,15 @@
         <div class="aside_logo">
             <img src="assets/images/logo.svg" alt="">
         </div>
-        <ul class="aside_nav nav flex-column">
+        <ul class="app_aside_nav nav flex-column"> 
             <li class="nav-item">
-                <a class="nav-link fs-normal" aria-current="page" routerLink="/admin/dashboard" routerLinkActive="active" >
+                <a class="nav-link" aria-current="page" routerLink="/admin/dashboard" routerLinkActive="active" >
                     <fa-icon [icon]="faSchoolFlag"></fa-icon>
                     Tableau de bord
                 </a>
             </li>
-            <li class="nav-item dropdown_toggle">
-                <a class="nav-link" routerLink="/admin/" routerLinkActive="active" >
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/admin/dashboard" routerLinkActive="active" >
                     <fa-icon [icon]="faSchoolFlag"></fa-icon>
                     Etudiant
                     <fa-icon class="ico_chevron" [icon]="faChevronDown"></fa-icon>
