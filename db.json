@@ -4,11 +4,35 @@
       "id": 1,
       "username": "admin",
       "password": "123"
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "prenom": "youssef",
+      "nom": "karfouh",
+      "dateN": "08/10/1999",
+      "class": "bac",
+      "group": "a",
+      "genre": "m"
     },
     {
       "id": 2,
-      "username": "ahmed",
-      "password": "123"
+      "prenom": "khalid",
+      "nom": "elfatouaki",
+      "dateN": "08/10/1994",
+      "class": "2eme",
+      "group": "b",
+      "genre": "f"
+    },
+    {
+      "id": 3,
+      "prenom": "oussama",
+      "nom": "atif",
+      "dateN": "08/10/1994",
+      "class": "3eme",
+      "group": "c",
+      "genre": "m"
     }
   ]
 }

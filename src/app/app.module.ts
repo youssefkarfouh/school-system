@@ -13,6 +13,8 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdminBoardComponent } from './components/admin-board/admin-board.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { CardBoardComponent } from './components/card-board/card-board.component';
+import { TableComponent } from './components/table/table.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     DashboardComponent,
     AdminBoardComponent,
     NotFoundComponent,
+    CardBoardComponent,
+    TableComponent,
   ],
   imports: [
     BrowserModule,

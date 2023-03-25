@@ -1,7 +1,6 @@
 .app_layout {
   display: flex;
   background-color: var(--bg-color);
-  height: 100vh;
   .app_aside {
     width: 15rem;
     background-color: white;
@@ -29,36 +28,52 @@
               display: flex;
             }
 
-            .ico_chevron{
+            .ico_chevron {
               transform: rotate(180deg);
               -webkit-transform: rotate(180deg);
               -moz-transform: rotate(180deg);
               -ms-transform: rotate(180deg);
               -o-transform: rotate(180deg);
-}
+            }
           }
 
           .ico_chevron {
             margin-left: auto;
-            transition: .3s all;
-            -webkit-transition: .3s all;
-            -moz-transition: .3s all;
-            -ms-transition: .3s all;
-            -o-transition: .3s all;
-}
+            transition: 0.3s all;
+            -webkit-transition: 0.3s all;
+            -moz-transition: 0.3s all;
+            -ms-transition: 0.3s all;
+            -o-transition: 0.3s all;
+          }
         }
 
         .dropdown_menu {
           display: none;
           flex-direction: column;
           padding-left: 2rem;
-          .nav-link{
-            
-          }
         }
       }
     }
   }
-  .app_content {
+  .app_content_wrapper {
+    flex: 1;
+    .app_content_bar {
+      background-color: white;
+      display: flex;
+      padding: 0.7rem 1.2rem;
+
+      .app_content_user {
+        margin-left: auto;
+
+        button {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+      }
+    }
+    .app_content {
+      padding: 3rem;
+    }
   }
 }

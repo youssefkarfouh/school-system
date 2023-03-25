@@ -1,0 +1,33 @@
+.card_board {
+  background-color: white;
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+
+  .card_ico {
+    width: 4rem;
+    height: 4rem;
+    justify-self: center;
+    background-color: var(--bg-color);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+
+    .icon {
+      line-height: 4rem;
+    }
+  }
+
+  //   .card_title {
+  //   }
+
+  //   .card_nbr {
+  //   }
+}
