@@ -14,7 +14,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdminBoardComponent } from './components/admin-board/admin-board.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CardBoardComponent } from './components/card-board/card-board.component';
-import { TableComponent } from './components/table/table.component';
+// import { TableComponent } from './components/table/table.component';
 
 
 @NgModule({
@@ -27,7 +27,7 @@ import { TableComponent } from './components/table/table.component';
     AdminBoardComponent,
     NotFoundComponent,
     CardBoardComponent,
-    TableComponent,
+    // TableComponent,
   ],
   imports: [
     BrowserModule,

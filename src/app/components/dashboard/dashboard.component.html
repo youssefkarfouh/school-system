@@ -3,14 +3,37 @@
 </div>
 
 <div class="row mt-5">
-    <div class="col-md-3 px-4" *ngFor="let card of numSequence(4);let f = first;let l = last" [ngClass]="{}">
-        <app-card-board></app-card-board>
+    <div class="col-md-3 px-4" *ngFor="let card of cards;">
+        <app-card-board [cardItem]="card"></app-card-board>
     </div>
 </div>
 
 <div class="row mt-5 bg-white">
     <div class="col-12 py-4 px-5">
         <h4 class="mb-5">Derniers étudiants inscrits</h4>
-        <app-table></app-table>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>DateN</th>
+                    <th>Class</th>
+                    <th>Group</th>
+                    <th>Genre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of studentList?.slice(0,5)">
+                    <td>{{row.id}}</td>
+                    <td>{{row.prenom}}</td>
+                    <td>{{row.nom}}</td>
+                    <td>{{row.dateN}}</td>
+                    <td>{{row.class}}</td>
+                    <td>{{row.group}}</td>
+                    <td>{{row.genre}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
