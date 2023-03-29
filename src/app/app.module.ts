@@ -6,6 +6,13 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
+// ant design modules 
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { uk_UA } from 'ng-zorro-antd/i18n';
+import { registerLocaleData } from '@angular/common';
+import uk from '@angular/common/locales/uk';
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/sign-up/sign-up.component';
@@ -16,6 +23,9 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CardBoardComponent } from './components/card-board/card-board.component';
 import { AddStudentComponent } from './components/add-student/add-student.component';
 import { ListStudentsComponent } from './components/list-students/list-students.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+registerLocaleData(uk);
 
 
 @NgModule({
@@ -37,8 +47,12 @@ import { ListStudentsComponent } from './components/list-students/list-students.
     AppRoutingModule,
     FormsModule,
     FontAwesomeModule,
+    BrowserAnimationsModule,
+    NzButtonModule
   ],
-  providers: [],
+  providers: [
+    { provide: NZ_I18N, useValue: uk_UA }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
