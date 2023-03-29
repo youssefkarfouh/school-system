@@ -4,6 +4,11 @@
       "id": 1,
       "username": "admin",
       "password": "123"
+    },
+    {
+      "username": "test",
+      "password": "test",
+      "id": 2
     }
   ],
   "students": [
@@ -105,6 +110,32 @@
       "class": "3eme",
       "group": "c",
       "genre": "f"
-    } 
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "prenom": "youssef",
+      "nom": "karfouh",
+      "dateN": "08/10/1999",
+      "matière": "math",
+      "genre": "m"
+    },
+    {
+      "id": 2,
+      "prenom": "dddd",
+      "nom": "karfouh",
+      "dateN": "08/10/1999",
+      "matière": "arabe",
+      "genre": "f"
+    },
+    {
+      "id": 3,
+      "prenom": "ah",
+      "nom": "karfouh",
+      "dateN": "08/10/1999",
+      "matière": "svt",
+      "genre": "m"
+    }
   ]
 }

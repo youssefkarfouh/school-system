@@ -14,7 +14,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdminBoardComponent } from './components/admin-board/admin-board.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CardBoardComponent } from './components/card-board/card-board.component';
-// import { TableComponent } from './components/table/table.component';
+import { AddStudentComponent } from './components/add-student/add-student.component';
+import { ListStudentsComponent } from './components/list-students/list-students.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CardBoardComponent } from './components/card-board/card-board.component
     AdminBoardComponent,
     NotFoundComponent,
     CardBoardComponent,
-    // TableComponent,
+    AddStudentComponent,
+    ListStudentsComponent,
   ],
   imports: [
     BrowserModule,

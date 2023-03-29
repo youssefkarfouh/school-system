@@ -1,16 +1,11 @@
 <div class="block_titles">
-    <h2>Tableau de bord</h2>
-</div>
-
-<div class="row mt-5">
-    <div class="col-md-3 px-4" *ngFor="let card of cardsData;">
-        <app-card-board [cardItem]="card"></app-card-board>
-    </div>
+    <h2>Etudiant</h2>
+    <p>Etudiant > List etudiants</p>
 </div>
 
 <div class="row mt-5 bg-white">
     <div class="col-12 py-4 px-5">
-        <h4 class="mb-5">Derniers étudiants inscrits</h4>
+        <h4 class="mb-5">List des étudiants</h4>
         <table class="table table-hover">
             <thead>
                 <tr>
@@ -24,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let row of studentList?.slice(0,5)">
+                <tr *ngFor="let row of studentList">
                     <td>{{row.id}}</td>
                     <td>{{row.prenom}}</td>
                     <td>{{row.nom}}</td>

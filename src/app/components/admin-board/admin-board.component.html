@@ -11,15 +11,15 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="">
+                <a class="nav-link" routerLink="/admin/etudiant" routerLinkActive="active">
                     <fa-icon [icon]="faSchoolFlag"></fa-icon>
                     Etudiant
                     <fa-icon class="ico_chevron" [icon]="faChevronDown"></fa-icon>
                 </a>
 
                 <div class="dropdown_menu">
-                    <a routerLink="" class="nav-link">Ajouter Etudiant</a>
-                    <a routerLink="" class="nav-link">List Etudiant</a>
+                    <a routerLink="/admin/etudiant/list"  class="nav-link">List Etudiant</a>
+                    <a routerLink="/admin/etudiant/add"  class="nav-link">Ajouter Etudiant</a>
                 </div>
             </li>
         </ul>

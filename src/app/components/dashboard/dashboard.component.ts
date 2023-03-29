@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IStudent } from 'src/app/shared/interfaces/student';
 import { StudentService } from 'src/app/shared/services/student.service';
-import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
+import { cards } from './cardsData';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,26 +10,8 @@ import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons';
 })
 export class DashboardComponent implements OnInit {
   studentList: IStudent[] = [];
-  menStudentList: IStudent[] = [];
-  womenStudentList: IStudent[] = [];
-  cards = [
-    {
-      cardIco: faChalkboardTeacher,
-      cardTitle: 'Etudiants',
-    },
-    {
-      cardIco: faChalkboardTeacher,
-      cardTitle: 'Enseignats',
-    },
-    {
-      cardIco: faChalkboardTeacher,
-      cardTitle: 'Garcon inscrits',
-    },
-    {
-      cardIco: faChalkboardTeacher,
-      cardTitle: 'Filles inscrits ',
-    },
-  ];
+
+  cardsData = cards;
 
   constructor(private studentService: StudentService) {}
 
@@ -37,21 +19,26 @@ export class DashboardComponent implements OnInit {
     this.studentService.getAll().subscribe((data) => {
       this.studentList = data;
 
-      data.forEach((student) => {
-        if (student.genre === 'f') {
-          this.womenStudentList = [...this.womenStudentList, student];
-        } else {
-          this.menStudentList = [...this.menStudentList, student];
+      this.cardsData.forEach((card) => {
+        switch (card.cardTitle) {
+          case 'Etudiants':
+            card.cardNumber = this.studentList.length;
+            break;
+          case 'Enseignats':
+            card.cardNumber = this.studentList.length;
+            break;
+          case 'Garcon inscrits':
+            card.cardNumber = this.studentList.filter(
+              (student) => student.genre == 'm'
+            ).length;
+            break;
+          case 'Filles inscrits':
+            card.cardNumber = this.studentList.filter(
+              (student) => student.genre == 'f'
+            ).length;
+            break;
         }
       });
-
-      // this.cards.map((card) => {
-      //   if (card.cardTitle == 'Etudiants') {
-      //     card.cardNumber = this.studentList.length;
-      //   }
-      // });
-      console.log('menStudentList', this.menStudentList);
-      console.log('womenStudentList', this.womenStudentList);
     });
   }
 }
