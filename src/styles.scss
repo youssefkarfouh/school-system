@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+// **************** GLOBAL **************** 
 :root {
   --main-color: #8a70d6;
   --error-color: #b71f1f;
@@ -15,6 +17,12 @@
 body {
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
+}
+
+.block_titles{
+  p{
+    color: var(--text-grayColor);
+  }
 }
 
 // **************** BUTTON ****************
