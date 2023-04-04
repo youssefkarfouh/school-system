@@ -6,7 +6,7 @@
 <div class="row mt-5 bg-white">
     <div class="col-12 py-4 px-5">
         <h4 class="mb-5">List des étudiants</h4>
-        <table class="table table-hover">
+        <nz-table #basicTable [nzBordered]='true' [nzData]="studentList">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -19,17 +19,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let row of studentList">
-                    <td>{{row.id}}</td>
-                    <td>{{row.prenom}}</td>
-                    <td>{{row.nom}}</td>
-                    <td>{{row.dateN}}</td>
-                    <td>{{row.class}}</td>
-                    <td>{{row.group}}</td>
-                    <td>{{row.genre}}</td>
+                <tr *ngFor="let data of basicTable.data">
+                    <td>{{ data.id }}</td>
+                    <td>{{ data.prenom }}</td>
+                    <td>{{ data.nom }}</td>
+                    <td>{{ data.dateN }}</td>
+                    <td>{{ data.class }}</td>
+                    <td>{{ data.group }}</td>
+                    <td>{{ data.genre }}</td>
                 </tr>
             </tbody>
-        </table>
-        <button nz-button nzType="primary">Primary Button</button>
+        </nz-table>
+
     </div>
 </div>

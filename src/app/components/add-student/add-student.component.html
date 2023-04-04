@@ -1,1 +1,30 @@
-<p>add-student works!</p>
+<div class="block_titles">
+    <h2>Etudiant</h2>
+    <p>Etudiant >Ajouter Etudiant</p>
+</div>
+
+<div class="row mt-5 bg-white">
+
+    <div class="col-12 py-4 px-5">
+        <h4 class="mb-5">Ajouter un étudiant</h4>
+
+    <!-- {{ |json}} -->
+ 
+        <form [formGroup]="studentForm" (ngSubmit)="AddStudent()">
+            
+            <input type="text" formControlName="nom">
+            <span *ngIf="studentForm.get('nom')?.hasError('required')">Required</span>
+            <input type="text" formControlName="prenom">
+            <input type="date" formControlName="dateN">
+            <input type="text" formControlName="class">
+            <input type="text" formControlName="group">
+            <input type="text" formControlName="genre">
+
+            <button nz-button nzType="primary" [disabled]="studentForm.invalid">Primary Button</button>
+
+        </form>
+
+
+    </div>
+
+</div>

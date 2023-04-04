@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IStudent } from 'src/app/shared/interfaces/student';
 import { StudentService } from 'src/app/shared/services/student.service';
 import { cards } from './cardsData';
+import { NzTablePaginationPosition, NzTbodyComponent } from 'ng-zorro-antd/table';
 
 @Component({
   selector: 'app-dashboard',
@@ -41,4 +42,6 @@ export class DashboardComponent implements OnInit {
       });
     });
   }
+
+  
 }

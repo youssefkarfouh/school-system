@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-
-// ant design modules 
+// ant design modules
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { uk_UA } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
@@ -26,7 +28,6 @@ import { ListStudentsComponent } from './components/list-students/list-students.
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 registerLocaleData(uk);
-
 
 @NgModule({
   declarations: [
@@ -48,11 +49,13 @@ registerLocaleData(uk);
     FormsModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    NzButtonModule
+    NzButtonModule,
+    NzTableModule,
+    NzDropDownModule,
+    ReactiveFormsModule
+
   ],
-  providers: [
-    { provide: NZ_I18N, useValue: uk_UA }
-  ],
-  bootstrap: [AppComponent]
+  providers: [{ provide: NZ_I18N, useValue: uk_UA }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
