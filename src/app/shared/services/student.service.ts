@@ -13,4 +13,7 @@ export class StudentService {
   getAll() {
     return this.http.get<IStudent[]>(`${this.api}/students`);
   }
+  addStudent(item : IStudent) {
+    return this.http.post<IStudent>(`${this.api}/students`,item);
+  }
 }

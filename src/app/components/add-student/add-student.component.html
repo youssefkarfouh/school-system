@@ -8,19 +8,92 @@
     <div class="col-12 py-4 px-5">
         <h4 class="mb-5">Ajouter un étudiant</h4>
 
-    <!-- {{ |json}} -->
- 
-        <form [formGroup]="studentForm" (ngSubmit)="AddStudent()">
-            
-            <input type="text" formControlName="nom">
-            <span *ngIf="studentForm.get('nom')?.hasError('required')">Required</span>
-            <input type="text" formControlName="prenom">
-            <input type="date" formControlName="dateN">
-            <input type="text" formControlName="class">
-            <input type="text" formControlName="group">
-            <input type="text" formControlName="genre">
+        <!-- {{studentForm.errors | json}} -->
+        <form nz-form [formGroup]="studentForm" [nzLayout]="'vertical'" (ngSubmit)="submitForm()">
+            <div nz-row [nzGutter]="32">
+                <div nz-col nzSpan="12">
+                    <nz-form-item>
+                        <nz-form-label nzRequired>Prénom</nz-form-label>
+                        <nz-form-control nzHasFeedback [nzErrorTip]="prenomErrorTpl">
+                            <input nz-input formControlName="prenom" placeholder="Prenom" />
+                            <ng-template #prenomErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required')">Svp Entrer Votre
+                                    Prénom!</ng-container>
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col nzSpan="12">
+                    <nz-form-item>
+                        <nz-form-label nzRequired>Nom</nz-form-label>
+                        <nz-form-control nzHasFeedback [nzErrorTip]="nomErrorTpl">
+                            <input nz-input formControlName="nom" placeholder="Nom" type="text" />
+                            <ng-template #nomErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required')">Svp Entrer Votre Nom</ng-container>
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </div>
 
-            <button nz-button nzType="primary" [disabled]="studentForm.invalid">Primary Button</button>
+            <div nz-row [nzGutter]="32">
+                <div nz-col nzSpan="12"> <nz-form-item>
+                        <nz-form-label nzRequired>Date Naissance</nz-form-label>
+                        <nz-form-control nzHasFeedback [nzErrorTip]="dateErrorTpl">
+                            <input nz-input type="text" formControlName="dateN" placeholder="Entrer Votre date!" />
+                            <ng-template #dateErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required')">Svp Entrer Votre
+                                    date!</ng-container>
+
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item></div>
+                <div nz-col nzSpan="12"> <nz-form-item>
+                        <nz-form-label nzRequired>Class</nz-form-label>
+                        <nz-form-control nzHasFeedback [nzErrorTip]="classErrorTpl">
+                            <input nz-input type="text" formControlName="class" placeholder="Entrer Votre Class!" />
+                            <ng-template #classErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required')">Svp Entrer Votre
+                                    Class!</ng-container>
+
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item></div>
+            </div>
+
+            <div nz-row [nzGutter]="32" nzAlign="middle">
+                <div nz-col nzSpan="12">
+                    <nz-form-item>
+                        <nz-form-label nzRequired>Group</nz-form-label>
+                        <nz-form-control nzHasFeedback [nzErrorTip]="groupErrorTpl">
+                            <input nz-input type="text" formControlName="group" placeholder="Entrer Votre group!" />
+                            <ng-template #groupErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required')">Svp Entrer Votre
+                                    group!</ng-container>
+
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col nzSpan="12">
+                    <nz-radio-group formControlName="genre">
+                        <label nz-radio nzValue="F">F</label>
+                        <label nz-radio nzValue="M">M</label>
+                    </nz-radio-group>
+                </div>
+            </div>
+
+            <div nz-row>
+                <div nz-col nzSpan="24">
+                    <nz-form-item>
+                        <nz-form-control>
+                            <button nz-button nzType="primary" [disabled]="!studentForm.valid">Submit</button>
+                            <button nz-button (click)="resetForm($event)">Reset</button>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+            </div>
 
         </form>
 
