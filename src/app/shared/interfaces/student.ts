@@ -6,4 +6,5 @@ export interface IStudent {
   class: string;
   group: string;
   genre: string;
+  dateInscrit : Date
 }

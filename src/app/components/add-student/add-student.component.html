@@ -61,7 +61,7 @@
                     </nz-form-item></div>
             </div>
 
-            <div nz-row [nzGutter]="32" nzAlign="middle">
+            <div nz-row [nzGutter]="32">
                 <div nz-col nzSpan="12">
                     <nz-form-item>
                         <nz-form-label nzRequired>Group</nz-form-label>
@@ -76,12 +76,30 @@
                     </nz-form-item>
                 </div>
                 <div nz-col nzSpan="12">
-                    <nz-radio-group formControlName="genre">
-                        <label nz-radio nzValue="F">F</label>
-                        <label nz-radio nzValue="M">M</label>
-                    </nz-radio-group>
+                    <nz-form-item>
+                        <nz-form-label nzRequired>Date Inscrit</nz-form-label>
+                        
+                        <nz-form-control>
+                            <input nz-input type="text" formControlName="dateInscrit" readonly />
+                        </nz-form-control>
+                    </nz-form-item>
                 </div>
+
             </div>
+
+
+            <div nz-row [nzGutter]="32">
+                <div nz-col nzSpan="12">
+                    <nz-form-item>
+                        <nz-radio-group formControlName="genre">
+                            <label nz-radio nzValue="F">F</label>
+                            <label nz-radio nzValue="M">M</label>
+                        </nz-radio-group>
+                    </nz-form-item>
+                </div>
+
+            </div>
+
 
             <div nz-row>
                 <div nz-col nzSpan="24">
@@ -94,10 +112,6 @@
                 </div>
 
             </div>
-
         </form>
-
-
     </div>
-
 </div>

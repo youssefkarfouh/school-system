@@ -16,6 +16,8 @@
                     <th>Class</th>
                     <th>Group</th>
                     <th>Genre</th>
+                    <th>Action</th>
+                    <th>Date Inscrit</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +29,11 @@
                     <td>{{ data.class }}</td>
                     <td>{{ data.group }}</td>
                     <td>{{ data.genre }}</td>
+                    <td>{{ data.dateInscrit }}</td>
+                    <td class="text-center">
+                        <fa-icon class="icon me-4" [icon]="faTrash" (click)="deleteStudent(data.id)" ></fa-icon>
+                        <fa-icon class="icon" [icon]="faPenToSquare"></fa-icon>
+                    </td>
                 </tr>
             </tbody>
         </nz-table>

@@ -20,6 +20,8 @@ import { StudentService } from '../../shared/services/student.service';
 export class AddStudentComponent implements OnInit {
   studentForm!: FormGroup;
 
+  // toDayDate = new Date();
+
   constructor(
     private fb: UntypedFormBuilder,
     private studentService: StudentService
@@ -27,28 +29,23 @@ export class AddStudentComponent implements OnInit {
     this.studentForm = this.fb.group({
       prenom: new FormControl('', [Validators.required]),
       nom: new FormControl('', [Validators.required]),
-      dateN: new FormControl(new Date('2022'), [Validators.required]),
+      dateN: new FormControl(new Date(), [Validators.required]),
       class: new FormControl('', [Validators.required]),
       group: new FormControl('', [Validators.required]),
       genre: new FormControl('', [Validators.required]),
+      dateInscrit : new FormControl((new Date())) 
     });
   }
   ngOnInit(): void {
-    this.studentForm.setValue({
-      nom: 'Nancy',
-      prenom: 'Drew',
-      dateN: 'Drew',
-      class: 'Drew',
-      group: 'Drew',
-      genre: 'ssd',
-    });
+
   }
 
   submitForm(): void {
-    this.studentService.addStudent(this.studentForm.value).subscribe((data) => {
-      console.log(data);
-    });
-    // console.log('submit', this.studentForm.value);
+
+    console.log(this.studentForm.value)
+    // this.studentService.addStudent(this.studentForm.value).subscribe((data) => {
+    //   console.log(data);
+    // });
   }
 
   resetForm(e: MouseEvent): void {
