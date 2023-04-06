@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { IStudent } from 'src/app/shared/interfaces/student';
 import { StudentService } from 'src/app/shared/services/student.service';
 import { cards } from './cardsData';
-import { NzTablePaginationPosition, NzTbodyComponent } from 'ng-zorro-antd/table';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,17 +24,17 @@ export class DashboardComponent implements OnInit {
           case 'Etudiants':
             card.cardNumber = this.studentList.length;
             break;
-          case 'Enseignats':
-            card.cardNumber = this.studentList.length;
-            break;
+          // case 'Enseignats':
+          //   card.cardNumber = this.studentList.length;
+          //   break;
           case 'Garcon inscrits':
             card.cardNumber = this.studentList.filter(
-              (student) => student.genre == 'm'
+              (student) => student.genre == 'M'
             ).length;
             break;
           case 'Filles inscrits':
             card.cardNumber = this.studentList.filter(
-              (student) => student.genre == 'f'
+              (student) => student.genre == 'F'
             ).length;
             break;
         }

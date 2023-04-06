@@ -1,9 +1,10 @@
-import { NgModule, forwardRef } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';  
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // ant design modules
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -12,6 +13,8 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { uk_UA } from 'ng-zorro-antd/i18n';
@@ -28,7 +31,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CardBoardComponent } from './components/card-board/card-board.component';
 import { AddStudentComponent } from './components/add-student/add-student.component';
 import { ListStudentsComponent } from './components/list-students/list-students.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 registerLocaleData(uk);
 
@@ -58,8 +60,9 @@ registerLocaleData(uk);
     NzDropDownModule,
     NzFormModule,
     NzRadioModule,
-    NzSpaceModule
-
+    NzSpaceModule,
+    NzAlertModule,
+    NzModalModule
   ],
   providers: [{ provide: NZ_I18N, useValue: uk_UA }],
   bootstrap: [AppComponent],

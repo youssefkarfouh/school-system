@@ -19,4 +19,7 @@ export class StudentService {
   removeStudent(id: number) {
     return this.http.delete<IStudent>(`${this.api}/students/${id}`);
   }
+  updateStudent(student:IStudent) {
+    return this.http.put<IStudent>(`${this.api}/students/${student.id}`,student);
+  }
 }

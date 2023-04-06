@@ -6,7 +6,9 @@
 <div class="row mt-5 bg-white">
     <div class="col-12 py-4 px-5">
         <h4 class="mb-5">List des étudiants</h4>
-        <nz-table #basicTable [nzBordered]='true' [nzData]="studentList">
+
+        
+        <nz-table #studentData [nzBordered]='true' [nzData]="studentList">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -16,12 +18,12 @@
                     <th>Class</th>
                     <th>Group</th>
                     <th>Genre</th>
-                    <th>Action</th>
                     <th>Date Inscrit</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let data of basicTable.data">
+                <tr *ngFor="let data of studentData.data">
                     <td>{{ data.id }}</td>
                     <td>{{ data.prenom }}</td>
                     <td>{{ data.nom }}</td>
@@ -31,8 +33,8 @@
                     <td>{{ data.genre }}</td>
                     <td>{{ data.dateInscrit }}</td>
                     <td class="text-center">
-                        <fa-icon class="icon me-4" [icon]="faTrash" (click)="deleteStudent(data.id)" ></fa-icon>
-                        <fa-icon class="icon" [icon]="faPenToSquare"></fa-icon>
+                        <fa-icon class="icon me-4" [icon]="faTrash" (click)="deleteStudent(data.id)"></fa-icon>
+                        <fa-icon class="icon" [icon]="faPenToSquare" (click)="showEditModal(data)"></fa-icon>
                     </td>
                 </tr>
             </tbody>
@@ -40,3 +42,116 @@
 
     </div>
 </div>
+
+
+<nz-modal nzWidth="700px" [(nzVisible)]="isVisible" nzTitle="Modifer un etudiant" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+    [nzOkLoading]="isOkLoading">
+
+    <ng-container *nzModalContent>
+        <form nz-form [formGroup]="studentForm" [nzLayout]="'vertical'" (ngSubmit)="handleOk()">
+            <div nz-row [nzGutter]="32">
+                <div nz-col nzSpan="12">
+                    <nz-form-item>
+                        <nz-form-label nzRequired>Prénom</nz-form-label>
+                        <nz-form-control nzHasFeedback [nzErrorTip]="prenomErrorTpl">
+                            <input nz-input formControlName="prenom" placeholder="Prenom" />
+                            <ng-template #prenomErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required')">Svp Entrer Votre
+                                    Prénom!</ng-container>
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col nzSpan="12">
+                    <nz-form-item>
+                        <nz-form-label nzRequired>Nom</nz-form-label>
+                        <nz-form-control nzHasFeedback [nzErrorTip]="nomErrorTpl">
+                            <input nz-input formControlName="nom" placeholder="Nom" type="text" />
+                            <ng-template #nomErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required')">Svp Entrer Votre Nom</ng-container>
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </div>
+
+            <div nz-row [nzGutter]="32">
+                <div nz-col nzSpan="12"> <nz-form-item>
+                        <nz-form-label nzRequired>Date Naissance</nz-form-label>
+                        <nz-form-control nzHasFeedback [nzErrorTip]="dateErrorTpl">
+                            <input nz-input type="text" formControlName="dateN" placeholder="Entrer Votre date!" />
+                            <ng-template #dateErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required')">Svp Entrer Votre
+                                    date!</ng-container>
+
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item></div>
+                <div nz-col nzSpan="12"> <nz-form-item>
+                        <nz-form-label nzRequired>Class</nz-form-label>
+                        <nz-form-control nzHasFeedback [nzErrorTip]="classErrorTpl">
+                            <input nz-input type="text" formControlName="class" placeholder="Entrer Votre Class!" />
+                            <ng-template #classErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required')">Svp Entrer Votre
+                                    Class!</ng-container>
+
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item></div>
+            </div>
+
+            <div nz-row [nzGutter]="32">
+                <div nz-col nzSpan="12">
+                    <nz-form-item>
+                        <nz-form-label nzRequired>Group</nz-form-label>
+                        <nz-form-control nzHasFeedback [nzErrorTip]="groupErrorTpl">
+                            <input nz-input type="text" formControlName="group" placeholder="Entrer Votre group!" />
+                            <ng-template #groupErrorTpl let-control>
+                                <ng-container *ngIf="control.hasError('required')">Svp Entrer Votre
+                                    group!</ng-container>
+
+                            </ng-template>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                <div nz-col nzSpan="12">
+                    <nz-form-item>
+                        <nz-form-label nzRequired>Date Inscrit</nz-form-label>
+                        <nz-form-control>
+                            <input nz-input type="text" formControlName="dateInscrit" readonly
+                                placeholder="Entrer Votre Date Inscrit!" />
+
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </div>
+
+            <div nz-row [nzGutter]="32">
+                <div nz-col nzSpan="12">
+                    <nz-form-item>
+                        <nz-radio-group formControlName="genre">
+                            <label nz-radio nzValue="F">F</label>
+                            <label nz-radio nzValue="M">M</label>
+                        </nz-radio-group>
+                    </nz-form-item>
+                </div>
+
+            </div>
+
+            <div nz-row>
+                <div nz-col nzSpan="24">
+                    <nz-form-item>
+                        <nz-form-control>
+                            <button nz-button nzType="primary" [disabled]="!studentForm.valid">Submit</button>
+
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+            </div>
+        </form>
+    </ng-container>
+
+
+
+</nz-modal>

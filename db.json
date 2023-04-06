@@ -12,8 +12,16 @@
     }
   ],
   "students": [
-  
-   
+    {
+      "id": 1,
+      "prenom": "khqlid",
+      "nom": "sdsd",
+      "dateN": "2023-04-06T15:04:16.510Z",
+      "class": "sdsd",
+      "group": "sdsd",
+      "genre": "M",
+      "dateInscrit": "06 / 04 / 2023"
+    }
   ],
   "teachers": [
     {

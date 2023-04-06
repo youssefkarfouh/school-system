@@ -3,13 +3,8 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-  UntypedFormBuilder,
-  UntypedFormControl,
-  UntypedFormGroup,
-  ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { Observable, Observer } from 'rxjs';
 import { StudentService } from '../../shared/services/student.service';
 
 @Component({
@@ -20,10 +15,13 @@ import { StudentService } from '../../shared/services/student.service';
 export class AddStudentComponent implements OnInit {
   studentForm!: FormGroup;
 
-  // toDayDate = new Date();
+  today = new Date();
+  day = this.today.getDate().toString().padStart(2, '0');
+  month = (this.today.getMonth() + 1).toString().padStart(2, '0');
+  year = this.today.getFullYear().toString();
 
   constructor(
-    private fb: UntypedFormBuilder,
+    private fb: FormBuilder,
     private studentService: StudentService
   ) {
     this.studentForm = this.fb.group({
@@ -33,19 +31,19 @@ export class AddStudentComponent implements OnInit {
       class: new FormControl('', [Validators.required]),
       group: new FormControl('', [Validators.required]),
       genre: new FormControl('', [Validators.required]),
-      dateInscrit : new FormControl((new Date())) 
+      dateInscrit: new FormControl(
+        `${this.day} / ${this.month} / ${this.year}`,
+        [Validators.required]
+      ),
     });
   }
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   submitForm(): void {
-
-    console.log(this.studentForm.value)
-    // this.studentService.addStudent(this.studentForm.value).subscribe((data) => {
-    //   console.log(data);
-    // });
+    this.studentService.addStudent(this.studentForm.value).subscribe((data) => {
+      console.log('data from server', data);
+      this.studentForm.reset();
+    });
   }
 
   resetForm(e: MouseEvent): void {

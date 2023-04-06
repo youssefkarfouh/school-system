@@ -8,7 +8,7 @@
     <div class="col-12 py-4 px-5">
         <h4 class="mb-5">Ajouter un étudiant</h4>
 
-        <!-- {{studentForm.errors | json}} -->
+
         <form nz-form [formGroup]="studentForm" [nzLayout]="'vertical'" (ngSubmit)="submitForm()">
             <div nz-row [nzGutter]="32">
                 <div nz-col nzSpan="12">
@@ -78,15 +78,13 @@
                 <div nz-col nzSpan="12">
                     <nz-form-item>
                         <nz-form-label nzRequired>Date Inscrit</nz-form-label>
-                        
                         <nz-form-control>
-                            <input nz-input type="text" formControlName="dateInscrit" readonly />
+                            <input nz-input type="text" formControlName="dateInscrit" readonly placeholder="Entrer Votre Date Inscrit!" />
+                            
                         </nz-form-control>
                     </nz-form-item>
                 </div>
-
             </div>
-
 
             <div nz-row [nzGutter]="32">
                 <div nz-col nzSpan="12">
@@ -99,7 +97,6 @@
                 </div>
 
             </div>
-
 
             <div nz-row>
                 <div nz-col nzSpan="24">
